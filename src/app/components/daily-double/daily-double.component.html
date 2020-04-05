@@ -1,0 +1,14 @@
+<div class="outer-container"
+    *ngIf="visible">
+    <div class="inner-container">
+        <div class="text">
+            DAILY DOUBLE<br/>
+            <form [formGroup]="wagerForm">
+                <input #wager>
+            </form>
+        </div>
+        <div class="button-container">
+            <button class="bottom-button" (click)="onEnter(wager.value)">Wager</button>
+        </div>
+    </div>
+</div>

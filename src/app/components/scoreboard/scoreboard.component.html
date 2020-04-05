@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="board" [ngClass]="{'selected': selectedID === team.id }" *ngFor='let team of sortByScore(); index as i' (click)=setSelectedTeam(team.id)>
+        <div>{{ team.name }}</div>
+        <div class="score">${{ team.score }}</div>
+    </div>
+    <div class="hold-my-buttons">
+        <button class="wrong" (click)='addScore(-questionValue, false)'>Wrong</button>
+        <button class="correct" (click)='addScore(questionValue, true)'>Correct</button>
+    </div>
+</div>

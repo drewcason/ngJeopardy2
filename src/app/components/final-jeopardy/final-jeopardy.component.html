@@ -1,0 +1,30 @@
+<div class="outer-container"
+    *ngIf="visible">
+    <div class="inner-container">
+        <div class="text" (click)="category()" *ngIf="showTitle">
+            FINAL JEOPARDY<br/>
+        </div>
+        <div class="text" (click)="question()" *ngIf="showCategory">
+            {{ finalCategory }}<br/>
+        </div>
+        <div class="text" (click)="scoreboard()" *ngIf="showQuestion">
+            {{ finalQuestion.question | uppercase }}<br/>
+        </div>
+        <div *ngIf="showScores">
+            <div class="text">
+                {{ selectedTeam.name | uppercase }}<br/>
+                <form [formGroup]="wagerForm">
+                    <input #wager>
+                </form>
+                <button (click)="onEnter(wager.value)">Wager</button>
+                <button (click)="finalScores()">Final Scores</button>
+            </div>
+        </div>
+        <div class="finalScoreContainer" *ngIf="showfinalScores">
+            <div class="board" *ngFor='let team of sortByScore()'>
+                <div class="name">{{ team.name }}</div>
+                <div class="score">${{ team.score }}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="outer-container"
+    [ngClass]="{'red': outOfTime }"
+    *ngIf="visible">
+    <span class="time" 
+        [ngClass]="{'red': outOfTime}">
+        {{ timeLeft }}
+    </span>
+    <div class="inner-container"
+        [ngClass]="{'red': outOfTime}">
+        <button *ngIf="paused" (click)='startTimer()'>Start Timer</button>
+        <button *ngIf="!paused" (click)='pauseTimer()'>Pause</button>
+        <div *ngIf="!showAnswer" class="text">
+            {{ question.question | uppercase }}
+        </div>
+        <div *ngIf="showAnswer" class="text">
+            {{ question.answer | uppercase }}
+        </div>
+        <div class="button-container">
+            <button class="bottom-button left" *ngIf="!showAnswer" (click)="setAnswerVisibility(true)">Answer</button>
+            <button class="bottom-button" (click)="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
