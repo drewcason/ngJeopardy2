@@ -13,7 +13,7 @@
         <div *ngIf="showScores">
             <div class="text">
                 {{ selectedTeam.name | uppercase }}<br/>
-                <form [formGroup]="wagerForm">
+                <form>
                     <input #wager>
                 </form>
                 <button (click)="onEnter(wager.value)">Wager</button>

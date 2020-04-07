@@ -9,15 +9,24 @@ import { FinalJeopardy } from './finalQuestion';
   providedIn: 'root'
 })
 export class JeopardyService {
+  constructor(
+    private http: HttpClient
+  ) {
+
+  }
   getJeopardyQuestions(): Observable<any> {
-    return of([...Jeopardy]);
+    return this.http.get('api/roundOneQuestions');
   }
 
   getDoubleJeopardyQuestions(): Observable<any> {
-    return of([...DoubleJeopardy]);
+    return this.http.get('api/roundTwoQuestions');
   }
 
   getFinalJeopardy(): Observable<any> {
-    return of(FinalJeopardy);
+    return this.http.get('api/finalJeopardy');
+  }
+
+  getTeams(): Observable<string[]> {
+    return this.http.get<string[]>('api/teams');
   }
 }

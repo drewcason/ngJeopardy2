@@ -7,7 +7,7 @@ import { GridComponent } from './components/grid/grid.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryService } from './in-memory.service';
 import { DailyDoubleComponent } from './components/daily-double/daily-double.component';
 import { FormBuilder } from '@angular/forms';
@@ -26,7 +26,7 @@ import { FinalJeopardyComponent } from './components/final-jeopardy/final-jeopar
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryService),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryService),
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]
